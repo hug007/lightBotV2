@@ -1,1 +1,2 @@
 test toto, toto est le meilleu et normalement doit seulement apparaitre dans la branche "francois"
+c'est globalement une init git
