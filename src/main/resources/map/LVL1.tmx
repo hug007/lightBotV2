@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
- <tileset firstgid="1" name="g" tilewidth="32" tileheight="32" tilecount="16">
-  <image source="tuiles/tile_23.png" width="128" height="128"/>
+ <tileset firstgid="1" name="g" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="tuiles/ground.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="17" name="w" tilewidth="32" tileheight="32" tilecount="16">
-  <image source="tuiles/tile_73.png" width="128" height="128"/>
+ <tileset firstgid="2" name="grass" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="tuiles/grass.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="33" name="gr" tilewidth="32" tileheight="32" tilecount="16">
-  <image source="tuiles/tile_69.png" width="128" height="128"/>
+ <tileset firstgid="3" name="water" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="tuiles/water.png" width="32" height="32"/>
  </tileset>
  <layer name="Calque de Tile 1" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC52U2wqDMBBEt4X23d4LvWjFivr//9cJZOi4bKT04bAJMXF2dpPKzHZgDw7gCE7gDC5/zhvwAu0P49J64gauoANv0P8wLq0nanAHAxjBJONmQZPOuW/K+VbyjUdziViBtcRb9q9z+LP6AhuwlVhn/wZBcyReh4/890Hy9TVTvV6Hj6wJ+4V1Uk2qmTqiPFqJ7BeuRz42oiOqUy/6kn932c9zSz5FNU59wp6hf5rDkl++vv6OeP+6rIV6Rpv3uqe1+R1R/7h3I3qWepno/2qb98tg5dxKaL58n5ifeh/lF6H58v5Sk3qvPRH1WvRmUV9ny++Qzn30+vT++jdrCuY+6lqqb+rnB3jat79L8+TNLlP6/gOmoiUJQAYAAA==
+   H4sIAAAAAAAAC2NmYGBgpgFmpAIeTOYxoeHBah61/TsYzEMPK/RwGyzmUSv9DTbziAmrgTCPVP30No9STItymdoYAJVzRYVABgAA
   </data>
  </layer>
 </map>

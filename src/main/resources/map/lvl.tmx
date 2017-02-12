@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="7" height="7" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="g" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="tuiles/ground.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="a" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="tuiles/grass.png" width="32" height="32"/>
+ </tileset>
+ <layer name="Calque de Tile 1" width="7" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NkYGBgJAIzoWF0OXz68JmFTZwY9yBjAPB6kmTEAAAA
+  </data>
+ </layer>
+</map>
