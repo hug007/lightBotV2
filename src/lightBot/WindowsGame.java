@@ -17,8 +17,8 @@ public class WindowsGame extends BasicGame {
 
 	private GameContainer container;
 	private TiledMap map;
-	private float x = 300, y = 300;
-	private int direction = 0;
+	private float x = 55, y = 230;
+	private int direction = 3;
 	private boolean moving = false;
 	private Animation[] animations = new Animation[8];
 	
@@ -31,7 +31,9 @@ public class WindowsGame extends BasicGame {
 //contenu du jeux
 		this.map.render(50, 50);
 		g.setBackground(new Color( 204,204 ,255 ));
-		g.drawAnimation(animations[direction + (moving ? 4 : 0)], x, y);
+		 g.setColor(new Color(0, 0, 0, .5f));
+		  g.fillOval(x - 16, y - 8, 32, 16);
+		   g.drawAnimation(animations[direction + (moving ? 4 : 0)], x-32, y-60);
 	}
 
 	@Override
@@ -51,8 +53,16 @@ public class WindowsGame extends BasicGame {
 	}
 
 	@Override
-	public void update(GameContainer container, int arg1) throws SlickException {
+	public void update(GameContainer container, int delta) throws SlickException {
 //mise a jour des éléments
+		if (this.moving) {
+	        switch (this.direction) {
+	            case 0: this.y -= .1f * delta; break;
+	            case 1: this.x -= .1f * delta; break;
+	            case 2: this.y += .1f * delta; break;
+	            case 3: this.x += .1f * delta; break;
+	        }
+	    }
 
 	}
 	
@@ -65,6 +75,7 @@ public class WindowsGame extends BasicGame {
 	        if (Input.KEY_ESCAPE == key) {
 	            container.exit();
 	        }
+	        this.moving = false;
 	    }
 	
 	private Animation loadAnimation(SpriteSheet spriteSheet, int startX, int endX, int y) {
@@ -73,6 +84,15 @@ public class WindowsGame extends BasicGame {
 	        animation.addFrame(spriteSheet.getSprite(x, y), 100);
 	    }
 	    return animation;
+	}
+	@Override
+	public void keyPressed(int key, char c) {
+	    switch (key) {
+	        case Input.KEY_UP:    this.direction = 0; this.moving = true; break;
+	        case Input.KEY_LEFT:  this.direction = 1; this.moving = true; break;
+	        case Input.KEY_DOWN:  this.direction = 2; this.moving = true; break;
+	        case Input.KEY_RIGHT: this.direction = 3; this.moving = true; break;
+	    }
 	}
 
 }
