@@ -54,8 +54,8 @@ public class WindowsGame extends BasicGame {
 	public void init(GameContainer container) throws SlickException {
 //initialisation
 		this.container = container;
-		this.map = new TiledMap("C:/Users/ZMNF8866/Documents/GitHub/lightBotV2/src/main/resources/map/lvl.tmx");
-		SpriteSheet spriteSheet = new SpriteSheet("C:/Users/ZMNF8866/Documents/GitHub/lightBotV2/src/main/resources/sprites/c.png", 64, 64);
+		this.map = new TiledMap("C:/Users/ZMNF8866/Documents/GitHub/fa19-lightBotV2/src/main/resources/map/ab.tmx");
+		SpriteSheet spriteSheet = new SpriteSheet("C:/Users/ZMNF8866/Documents/GitHub/fa19-lightBotV2/src/main/resources/sprites/c.png", 64, 64);
 		this.animations[0] = loadAnimation(spriteSheet, 0, 1, 0);
 	    this.animations[1] = loadAnimation(spriteSheet, 0, 1, 1);
 	    this.animations[2] = loadAnimation(spriteSheet, 0, 1, 2);
