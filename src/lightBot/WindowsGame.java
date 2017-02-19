@@ -28,12 +28,15 @@ public class WindowsGame extends BasicGame {
 	protected float x = 50, y = 50+(5*32)+(16);
 	protected int direction=3;
 	protected boolean moving=false;
+	public enum Controleurrobot {haut,gauche,droite,bas,vide;}
+	List<Controleurrobot> listControleurClickUtilisateur = new LinkedList<Controleurrobot>();
 	
 	public WindowsGame() {
 		super("test 1 :: lighbot");
 		 this.map= new Map(this.tiledmap);
 		 this.robot=new DeplacementPersonnage(this.x,this.y,this.direction,this.moving);
 		 this.controleur=new Controleur(this.controleurmap);
+		 listControleurClickUtilisateur.add(Controleurrobot.vide);
 	}
 
 	@Override
@@ -68,7 +71,7 @@ public class WindowsGame extends BasicGame {
 	@Override
 	public void update(GameContainer container, int delta) throws SlickException {
 //mise a jour des éléments
-		str=""+delta;
+		//str=""+delta;
 		/*if (this.moving) {
 	        switch (this.direction) {
 	            case 0: this.y -= 0.1f * delta; break; // mettre des limite pour ne pas sortir de la map
@@ -139,8 +142,30 @@ else{
 		switch (button) {
 		//case Input.isMouseButtonDown(button): 
 		case Input.MOUSE_LEFT_BUTTON:
-			if(400<x&& x<500 && 300<y && y<400) { this.x = 50; this.y = 50+(5*32)+(16); this.moving=true; this.bool=true;} 
-			else this.str="mouse active"; break;
+			if(400<x && x<500 && 300<y && y<400) {// bouton GO
+				this.x = 50; this.y = 50+(5*32)+(16); this.moving=true; this.bool=true;
+				} 
+			if(y>486 && y<582){// (550 -64) +96
+				if(x>50 && x <146){
+					this.str="controleur haut";
+					listControleurClickUtilisateur.add(Controleurrobot.haut);liste(listControleurClickUtilisateur);
+				}
+				else if(x>178 && x<274){
+					
+					this.str="controleur gauche";
+					listControleurClickUtilisateur.add(Controleurrobot.gauche);liste(listControleurClickUtilisateur);
+				}
+				else if(x>306 && x<402){
+					this.str="controleur droite";
+					listControleurClickUtilisateur.add(Controleurrobot.droite);liste(listControleurClickUtilisateur);
+				}
+				else if(x>434 && x<530){
+					this.str="controleur bas";
+					listControleurClickUtilisateur.add(Controleurrobot.bas);liste(listControleurClickUtilisateur);
+				}
+				else this.str="mouse controleur";
+			}
+			else this.str="mouse active";break;
 	}
 	}
 	@Override
@@ -148,6 +173,14 @@ else{
 		 //this.str="";
 	}
 	
+	public void liste(List<Controleurrobot> listControleurClickUtilisateur){
+		
+		//this.str=""+listControleurClickUtilisateur.get(listControleurClickUtilisateur.size()-1);
+		this.str="";
+		for(int i=0;i<listControleurClickUtilisateur.size();i++){
+			this.str=this.str+", "+listControleurClickUtilisateur.get(i);
+		}
+	}
 	
 	}
 

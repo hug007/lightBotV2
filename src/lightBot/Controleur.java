@@ -12,6 +12,7 @@ public class Controleur {
 	
 	public void render() {
 		this.controleur.render(50, 550);
+		//this.controleur.render(0, 64);
 	}
 
 	public void init() throws SlickException {
