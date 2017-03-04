@@ -7,6 +7,9 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
+
+import lightBot.Controleur.Controleurrobot;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.*;
 import java.util.*;
@@ -23,20 +26,19 @@ public class WindowsGame extends BasicGame {
 	protected Map map;
 	protected DeplacementPersonnage robot;
 	protected Controleur controleur;
-	private String str="";
+	protected String str="";
 	private boolean bool=false;
 	protected float x = 50, y = 50+(5*32)+(16);
 	protected int direction=3;
 	protected boolean moving=false;
-	public enum Controleurrobot {haut,gauche,droite,bas,vide;}
-	List<Controleurrobot> listControleurClickUtilisateur = new LinkedList<Controleurrobot>();
+	
 	
 	public WindowsGame() {
 		super("test 1 :: lighbot");
 		 this.map= new Map(this.tiledmap);
 		 this.robot=new DeplacementPersonnage(this.x,this.y,this.direction,this.moving);
 		 this.controleur=new Controleur(this.controleurmap);
-		 listControleurClickUtilisateur.add(Controleurrobot.vide);
+		 this.controleur.add(0);
 	}
 
 	@Override
@@ -135,6 +137,7 @@ else{
 	            container.exit();
 	        }
 	        this.moving = false;
+	        if (Input.KEY_W == key) {liste();}
 	    }
 	
 	@Override
@@ -148,20 +151,20 @@ else{
 			if(y>486 && y<582){// (550 -64) +96
 				if(x>50 && x <146){
 					this.str="controleur haut";
-					listControleurClickUtilisateur.add(Controleurrobot.haut);liste(listControleurClickUtilisateur);
+					this.controleur.add(1);
 				}
 				else if(x>178 && x<274){
 					
 					this.str="controleur gauche";
-					listControleurClickUtilisateur.add(Controleurrobot.gauche);liste(listControleurClickUtilisateur);
+					this.controleur.add(2);
 				}
 				else if(x>306 && x<402){
 					this.str="controleur droite";
-					listControleurClickUtilisateur.add(Controleurrobot.droite);liste(listControleurClickUtilisateur);
+					this.controleur.add(3);
 				}
 				else if(x>434 && x<530){
 					this.str="controleur bas";
-					listControleurClickUtilisateur.add(Controleurrobot.bas);liste(listControleurClickUtilisateur);
+					this.controleur.add(4);
 				}
 				else this.str="mouse controleur";
 			}
@@ -171,17 +174,17 @@ else{
 	@Override
 	public void mouseReleased(int button, int x, int y) {
 		 //this.str="";
+		liste();
 	}
 	
-	public void liste(List<Controleurrobot> listControleurClickUtilisateur){
+public void liste(){
 		
 		//this.str=""+listControleurClickUtilisateur.get(listControleurClickUtilisateur.size()-1);
 		this.str="";
-		for(int i=0;i<listControleurClickUtilisateur.size();i++){
-			this.str=this.str+", "+listControleurClickUtilisateur.get(i);
+		for(int i=0;i<=this.controleur.listControleurClickUtilisateur.size()-1;i++){
+			this.str=this.str+this.controleur.listControleurClickUtilisateur.get(i)+", ";
 		}
 	}
-	
 	}
 
 //http://slick.ninjacave.com/javadoc/org/newdawn/slick/Input.html
