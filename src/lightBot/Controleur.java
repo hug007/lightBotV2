@@ -13,7 +13,7 @@ public class Controleur {
 	
 	
 	public Controleur(TiledMap controleur) {
-        this.controleur=controleur;
+        this.controleur=controleur   v;
     }
 	
 	public void render() {
